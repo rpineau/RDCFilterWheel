@@ -6,9 +6,9 @@ CPPFLAGS = -fPIC -Wall -Wextra -O2 -g -DSB_LINUX_BUILD -I. -I./../../
 LDFLAGS = -shared -lstdc++
 RM = rm -f
 STRIP = strip
-TARGET_LIB = libXagylFilterWheel.so
+TARGET_LIB = libRDCFilterWheel.so
 
-SRCS = main.cpp x2filterwheel.cpp xagyl.cpp
+SRCS = main.cpp x2filterwheel.cpp rdc.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 .PHONY: all
