@@ -1,0 +1,2 @@
+2|Chuck Faranda|RDC shutter|Simple Arduino shutter for dark automation| |libRDCFilterWheel||1|1|1|
+
