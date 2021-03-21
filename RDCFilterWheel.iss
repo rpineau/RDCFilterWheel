@@ -40,12 +40,18 @@ DirExistsWarning=no
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
+[Dirs]
+Name: "{app}\Plugins\FilterWheelPlugIns";
+Name: "{app}\Plugins64\FilterWheelPlugIns";
+
 [Files]
-; WIll also need to customise these!
-Source: "filterwheellist rdc.txt"; DestDir: "{app}\Miscellaneous Files"; Flags: ignoreversion
-Source: "libRDCFilterWheel\Release\libRDCFilterWheel.dll"; DestDir: "{app}\Plugins\FilterWheelPlugIns"; Flags: ignoreversion
-; NOTE: Don't use "Flags: ignoreversion" on any shared system files
-; msgBox('Do you want to install MyProg.exe to ' + ExtractFilePath(CurrentFileName) + '?', mbConfirmation, MB_YESNO)
+Source: "filterwheellist rdc.txt";                                  DestDir: "{app}\Miscellaneous Files"; Flags: ignoreversion
+Source: "filterwheellist rdc.txt";                                  DestDir: "{app}\Miscellaneous Files"; Flags: ignoreversion; DestName: "filterwheellist64 rdc.txt"
+; 32 bit
+Source: "libRDCFilterWheel\Win32\Release\libRDCFilterWheel.dll";    DestDir: "{app}\Plugins\FilterWheelPlugIns"; Flags: ignoreversion; Check: DirExists(ExpandConstant('{app}\Plugins64\FilterWheelPlugIns'))
+; 64 bit
+Source: "libRDCFilterWheel\x64\Release\libRDCFilterWheel.dll";      DestDir: "{app}\Plugins64\FilterWheelPlugIns"; Flags: ignoreversion; Check: DirExists(ExpandConstant('{app}\Plugins64\FilterWheelPlugIns'))
+
 
 [Code]
 {* Below is a function to read TheSkyXInstallPath.txt and confirm that the directory does exist
